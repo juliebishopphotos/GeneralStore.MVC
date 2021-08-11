@@ -27,7 +27,7 @@ namespace GeneralStore.MVC.Controllers
             return View();
         }
 
-        //POST: Product
+        //POST: Customer
         [HttpPost]
         public ActionResult Create(Customer customer)
         {
@@ -49,12 +49,12 @@ namespace GeneralStore.MVC.Controllers
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
             }
 
-            Product product = _db.Products.Find(id);
-            if (product == null)
+            Customer customer = _db.Customers.Find(id);
+            if (customer == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(customer);
         }
 
         //POST: Delete
@@ -77,12 +77,12 @@ namespace GeneralStore.MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = _db.Products.Find(id);
-            if (product == null)
+            Customer customer= _db.Customers.Find(id);
+            if (customer == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(customer);
         }
 
         //Post: Edit// Customer/Edit/{id}
